@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary */
+  --primary-900: #1e3a8a;
+  --primary-700: #1d4ed8;
+  --primary-500: #3b82f6;
+  --primary-100: #dbeafe;
+
+  /* Secondary */
+  --secondary-900: #78350f;
+  --secondary-700: #b45309;
+  --secondary-500: #f59e0b;
+
+  /* Neutral */
+  --gray-900: #111827;
+  --gray-700: #374151;
+  --gray-500: #6b7280;
+  --gray-100: #f3f4f6;
+  --white: #ffffff;
+
+  /* Accent */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-base text-gray-900 antialiased;
+  }
+  h1 {
+    @apply text-display;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Skip to content link */
+.skip-link {
+  @apply absolute left-4 top-4 -translate-y-20 bg-primary-700 text-white px-4 py-2 rounded-md z-[100] transition-transform focus:translate-y-0;
+}
