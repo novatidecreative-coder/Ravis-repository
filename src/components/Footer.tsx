@@ -20,6 +20,7 @@ const quickLinks = [
   { href: "/#reviews", label: "Reviews" },
   { href: "/#faq", label: "FAQs" },
   { href: "/#areas", label: "Areas We Serve" },
+  { href: "/#quote", label: "Get Quote" },
   { href: "/#contact", label: "Contact Us" },
 ];
 

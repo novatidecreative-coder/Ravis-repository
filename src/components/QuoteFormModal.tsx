@@ -103,10 +103,10 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-gray-100"
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border-2 border-gray-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white border-b flex items-center justify-between px-6 py-4 rounded-t-2xl">
+            <div className="sticky top-0 bg-white border-b-2 border-gray-200 flex items-center justify-between px-6 py-4 rounded-t-2xl z-10">
               <h2 id="quote-form-title" className="text-xl font-bold text-gray-900">
                 Get Your Free Quote
               </h2>
@@ -150,25 +150,25 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                 />
 
                 <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="fullName" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Full Name *
                   </label>
                   <input
                     id="fullName"
                     {...register("fullName")}
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border bg-white",
-                      errors.fullName ? "border-danger focus:ring-danger/20" : "border-gray-300 focus:ring-primary-500/20"
+                      "w-full px-4 py-3 rounded-lg border-2 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
+                      errors.fullName ? "border-danger" : "border-gray-400"
                     )}
                     placeholder="John Smith"
                   />
                   {errors.fullName && (
-                    <p className="mt-1 text-sm text-danger">{errors.fullName.message}</p>
+                    <p className="mt-1 text-sm font-medium text-danger">{errors.fullName.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Email *
                   </label>
                   <input
@@ -176,18 +176,18 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                     type="email"
                     {...register("email")}
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border bg-white",
-                      errors.email ? "border-danger" : "border-gray-300"
+                      "w-full px-4 py-3 rounded-lg border-2 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
+                      errors.email ? "border-danger" : "border-gray-400"
                     )}
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-danger">{errors.email.message}</p>
+                    <p className="mt-1 text-sm font-medium text-danger">{errors.email.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Phone *
                   </label>
                   <input
@@ -195,26 +195,26 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                     type="tel"
                     {...register("phone")}
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border bg-white",
-                      errors.phone ? "border-danger" : "border-gray-300"
+                      "w-full px-4 py-3 rounded-lg border-2 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
+                      errors.phone ? "border-danger" : "border-gray-400"
                     )}
                     placeholder="(718) 555-1234"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-danger">{errors.phone.message}</p>
+                    <p className="mt-1 text-sm font-medium text-danger">{errors.phone.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Service Needed *
                   </label>
                   <select
                     id="service"
                     {...register("service")}
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border bg-white",
-                      errors.service ? "border-danger" : "border-gray-300"
+                      "w-full px-4 py-3 rounded-lg border-2 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
+                      errors.service ? "border-danger" : "border-gray-400"
                     )}
                   >
                     <option value="">Select service</option>
@@ -228,22 +228,22 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                     <input
                       {...register("otherService")}
                       placeholder="Please specify"
-                      className="mt-2 w-full px-4 py-2 rounded-lg border border-gray-300"
+                      className="mt-2 w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-gray-50 focus:bg-white"
                     />
                   )}
                   {errors.service && (
-                    <p className="mt-1 text-sm text-danger">{errors.service.message}</p>
+                    <p className="mt-1 text-sm font-medium text-danger">{errors.service.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="propertyType" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Property Type *
                   </label>
                   <select
                     id="propertyType"
                     {...register("propertyType")}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white"
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                   >
                     <option value="Residential">Residential</option>
                     <option value="Commercial">Commercial</option>
@@ -251,38 +251,38 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="zipCode" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Zip Code *
                   </label>
                   <input
                     id="zipCode"
                     {...register("zipCode")}
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border bg-white",
-                      errors.zipCode ? "border-danger" : "border-gray-300"
+                      "w-full px-4 py-3 rounded-lg border-2 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
+                      errors.zipCode ? "border-danger" : "border-gray-400"
                     )}
                     placeholder="11416"
                   />
                   {errors.zipCode && (
-                    <p className="mt-1 text-sm text-danger">{errors.zipCode.message}</p>
+                    <p className="mt-1 text-sm font-medium text-danger">{errors.zipCode.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="projectDetails" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="projectDetails" className="block text-sm font-semibold text-gray-900 mb-1.5">
                     Project Details (optional)
                   </label>
                   <textarea
                     id="projectDetails"
                     {...register("projectDetails")}
                     rows={3}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white"
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     placeholder="Describe your project..."
                   />
                 </div>
 
                 <div>
-                  <span className="block text-sm font-medium text-gray-700 mb-2">
+                  <span className="block text-sm font-semibold text-gray-900 mb-2">
                     Preferred Contact *
                   </span>
                   <div className="flex gap-4">
@@ -292,16 +292,16 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                           type="radio"
                           {...register("preferredContact")}
                           value={opt}
-                          className="text-primary-600"
+                          className="text-primary-600 w-4 h-4"
                         />
-                        <span className="text-sm">{opt}</span>
+                        <span className="text-sm font-medium text-gray-900">{opt}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 {submitStatus === "error" && (
-                  <p className="text-sm text-danger">
+                  <p className="text-sm font-medium text-danger">
                     Something went wrong. Please call us at (718) 849-8999 or try again.
                   </p>
                 )}
@@ -309,7 +309,7 @@ export function QuoteFormModal({ open, onClose }: QuoteFormModalProps) {
                 <button
                   type="submit"
                   disabled={submitStatus === "loading"}
-                  className="w-full py-3 bg-secondary-500 hover:bg-secondary-700 disabled:opacity-70 text-white font-semibold rounded-lg flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-secondary-500 hover:bg-secondary-700 disabled:opacity-70 text-white font-bold rounded-lg flex items-center justify-center gap-2 text-base border-2 border-secondary-700"
                 >
                   {submitStatus === "loading" ? (
                     <>

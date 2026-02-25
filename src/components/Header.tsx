@@ -29,6 +29,7 @@ const navLinks = [
   { href: "/#reviews", label: "Reviews" },
   { href: "/#areas", label: "Areas We Serve" },
   { href: "/#faq", label: "FAQs" },
+  { href: "/#quote", label: "Get Quote" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -59,13 +60,18 @@ export function Header() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-md py-2"
-            : "bg-transparent py-4"
+            : "bg-black/50 backdrop-blur-md py-4"
         )}
       >
         <div className="container mx-auto px-4 flex items-center justify-between max-w-7xl">
           <Link
             href="/"
-            className="text-xl font-bold text-primary-900 hover:text-primary-700 transition-colors"
+            className={cn(
+              "text-xl font-bold transition-colors",
+              scrolled
+                ? "text-primary-900 hover:text-primary-700"
+                : "text-white hover:text-primary-200"
+            )}
             aria-label="City Suburb Inc. Home"
           >
             City Suburb Inc.
@@ -76,7 +82,12 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                className={cn(
+                  "font-medium transition-colors",
+                  scrolled
+                    ? "text-gray-700 hover:text-primary-600"
+                    : "text-white hover:text-primary-200"
+                )}
               >
                 {link.label}
               </Link>
@@ -84,7 +95,12 @@ export function Header() {
             <div className="relative group">
               <button
                 type="button"
-                className="flex items-center gap-1 text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                className={cn(
+                  "flex items-center gap-1 font-medium transition-colors",
+                  scrolled
+                    ? "text-gray-700 hover:text-primary-600"
+                    : "text-white hover:text-primary-200"
+                )}
                 aria-expanded={servicesOpen}
                 aria-haspopup="true"
                 onClick={() => setServicesOpen(!servicesOpen)}
@@ -119,7 +135,12 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:7188498999"
-              className="flex items-center gap-2 text-primary-700 font-semibold hover:text-primary-900"
+              className={cn(
+                "flex items-center gap-2 font-semibold transition-colors",
+                scrolled
+                  ? "text-primary-700 hover:text-primary-900"
+                  : "text-white hover:text-primary-200"
+              )}
               aria-label="Call (718) 849-8999"
             >
               <Phone className="w-4 h-4" />
@@ -136,7 +157,10 @@ export function Header() {
 
           <button
             type="button"
-            className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            className={cn(
+              "lg:hidden p-2 rounded-lg transition-colors",
+              scrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/20"
+            )}
             aria-label="Open menu"
             onClick={() => setMobileOpen(true)}
           >
