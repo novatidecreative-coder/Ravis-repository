@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -39,8 +40,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <Link href="/" className="text-xl font-bold text-white hover:text-primary-100">
-              City Suburb Inc.
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/images/logo-city-suburb.png"
+                alt="City Suburb Inc. logo"
+                width={180}
+                height={48}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-2 text-sm text-gray-400">
               Queens&apos; Premier Roofing & Masonry Experts. Licensed, Bonded & Insured.

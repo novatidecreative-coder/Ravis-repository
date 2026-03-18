@@ -21,12 +21,12 @@ export function Hero() {
     >
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 from-0% via-primary-900/85 via-40% to-primary-900/95 to-100% z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/85 via-primary-900/70 to-primary-900/90 z-10" />
         <Image
-          src="https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=1920&q=80"
-          alt="Masonry and construction work - placeholder, image will be updated"
+          src="/images/hero-masonry.png"
+          alt="City Suburb Inc. crew performing masonry and paver installation"
           fill
-          className="object-cover scale-105"
+          className="object-cover object-center scale-105"
           priority
           sizes="100vw"
         />

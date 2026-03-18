@@ -11,13 +11,14 @@ import {
   ChevronDown,
   Hammer,
   Home,
-  Image,
+  Image as IconImage,
   FileText,
   MessageCircle,
   MapPin,
   HelpCircle,
   Users,
 } from "lucide-react";
+import NextImage from "next/image";
 import { cn } from "@/lib/utils";
 import { useQuoteModal } from "@/contexts/QuoteModalContext";
 import { QuoteFormModal } from "./QuoteFormModal";
@@ -66,15 +67,17 @@ export function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between max-w-7xl">
           <Link
             href="/"
-            className={cn(
-              "text-xl font-bold transition-colors",
-              scrolled
-                ? "text-primary-900 hover:text-primary-700"
-                : "text-white hover:text-primary-200"
-            )}
+            className="flex items-center gap-3"
             aria-label="City Suburb Inc. Home"
           >
-            City Suburb Inc.
+            <NextImage
+              src="/images/logo-city-suburb.png"
+              alt="City Suburb Inc. logo"
+              width={150}
+              height={40}
+              className="h-8 w-auto sm:h-10"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6" aria-label="Main">
@@ -212,7 +215,7 @@ export function Header() {
                     className="flex items-center gap-2 py-3 px-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-700 font-medium"
                   >
                     {link.label === "Services" && <Hammer className="w-4 h-4" />}
-                    {link.label === "Gallery" && <Image className="w-4 h-4" />}
+                    {link.label === "Gallery" && <IconImage className="w-4 h-4" />}
                     {link.label === "Reviews" && <MessageCircle className="w-4 h-4" />}
                     {link.label === "Areas We Serve" && <MapPin className="w-4 h-4" />}
                     {link.label === "FAQs" && <HelpCircle className="w-4 h-4" />}
